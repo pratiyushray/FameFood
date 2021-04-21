@@ -1,28 +1,27 @@
 package com.example.famefood;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import Utils.BottomNavigationViewHelper;
 
-public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG= "MainActivity";
-
-    private Context mContext = MainActivity.this;
+public class ShareActivity extends AppCompatActivity {
+    private static final String TAG = "ShareActivity";
+    private Context mContext = ShareActivity.this;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: starting.");
+        Log.d(TAG, "onCreate: started.");
+        setupBottomNavigationView();
     }
 
     /**
