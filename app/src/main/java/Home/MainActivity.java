@@ -1,27 +1,30 @@
-package com.example.famefood;
+package Home;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.famefood.R;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import Utils.BottomNavigationViewHelper;
 
-public class ShareActivity extends AppCompatActivity {
-    private static final String TAG = "ShareActivity";
-    private Context mContext = ShareActivity.this;
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG= "MainActivity";
+    private static final int ACTIVITY_NUM = 0;
+
+    private Context mContext = MainActivity.this;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: started.");
-        setupBottomNavigationView();
+        Log.d(TAG, "onCreate: starting.");
     }
 
     /**
@@ -31,7 +34,11 @@ public class ShareActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
-        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(mContext, this,bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
+
 
 
     }
