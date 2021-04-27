@@ -1,5 +1,6 @@
 package Utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,7 +22,7 @@ public class BottomNavigationViewHelper {
     private static final String TAG = "BottomNavigationViewHel";
     public static void setupBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx){
        Log.d(TAG, "setupBottomNavigationView: Setting up BottomNavigationView");
-        bottomNavigationViewEx.enableAnimation(false);
+
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.setTextVisibility(false);
@@ -29,6 +30,7 @@ public class BottomNavigationViewHelper {
     }
     public static void enableNavigation(final Context context, final Activity callingActivity, BottomNavigationViewEx view){
         view.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
