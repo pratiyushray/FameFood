@@ -19,24 +19,35 @@ public class ProfileActivity extends AppCompatActivity {
     private Context mContext = ProfileActivity.this;
     private Object BottomNavigationView;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: started.");
 
+        setupBottomNavigationView();
+        //setupToolbar();
+
 
     }
+
     
     private void setupToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.profileToolBar);
         setSupportActionBar(toolbar);
+        setupToolbar();
+
+
+
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Log.d(TAG, "onMenuItemCLick: clicked menu item: " + item);
                 switch (item.getItemId()){
                     case R.id.profileMenu:
+
                     Log.d(TAG, "onMenuItemClick: Navigating to Profile Prefrences.");
                 }
                 return true;
